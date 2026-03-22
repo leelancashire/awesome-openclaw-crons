@@ -36,7 +36,7 @@ Writing & Content — Newsletter drafts, LinkedIn posts, and content pipelines.
 
 Job Schedule What it does
 - Weekly Content Pipeline — Friday 10pm — Multi-agent: synthesis → newsletter + LinkedIn + research report
-- Newsletter Draft — Saturday 8am — Standalone Rare Signal draft (single-agent version)
+- Newsletter Draft — Saturday 8am — Standalone newsletter draft (single-agent version)
 
 Monitoring & Health — System health, security, and agent maintenance.
 
@@ -134,4 +134,4 @@ Related resources
 
 Author
 
-Built and maintained by Lee Lancashire — Head of Data Science at Every Cure, working at the intersection of AI and rare disease research. These cron jobs run my personal research OS. I added them here because I spent weeks figuring out what works and the community deserves to start from somewhere better than scratch.
+Maintained by Lee Lancashire. Examples are community-focused and generic.
