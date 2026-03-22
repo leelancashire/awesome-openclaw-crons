@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: forbid-secrets
+        name: forbid-secrets
+        entry: bash scripts/forbid-secrets.sh
+        language: script
+        stages: [commit]
+        description: "Quick grep for likely secret keywords in staged files (basic guard)"
