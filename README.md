@@ -190,9 +190,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Author
 
-Maintained by Lee Lancashire  -  https://www.linkedin.com/in/llancashire/
+Maintained by Lee Lancashire — https://www.linkedin.com/in/llancashire/
 
-I am testing these cron jobs as a way to run my personal research OS. I thought I would share them since I spent a couple of weeks figuring out what works and it might be helpful to share with the community rather than them start from scratch.
+I've been running these as a personal research OS for several weeks. The hiccups are real. The timing rationale helps. Sharing because I spent some time figuring out what works and nobody else had documented it as far as I could tell.
 
 
 ---
