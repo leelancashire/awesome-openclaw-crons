@@ -52,7 +52,7 @@ Newsletter drafts, LinkedIn posts, and content pipelines.
 | Job | Schedule | What it does |
 |-----|----------|-------------|
 | [Weekly Content Pipeline](categories/writing/weekly-content-pipeline.md) | Friday 10pm | Multi-agent: synthesis → newsletter + LinkedIn + research report |
-| [Newsletter Draft](categories/writing/newsletter-draft.md) | Saturday 8am | Standalone Rare Signal draft (single-agent version) |
+| [Newsletter Draft](categories/writing/newsletter-draft.md) | Saturday 8am | Standalone newsletter draft (single-agent version) |
 
 ### 🏥 Monitoring & Health
 System health, security, and agent maintenance.
