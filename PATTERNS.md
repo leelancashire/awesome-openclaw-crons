@@ -178,3 +178,17 @@ The OpenClaw ecosystem includes diagnostic and visualization skills that complem
 - cron-visualizer — a visualization skill for job schedules and quota usage over time
 
 Use these alongside the patterns in this doc for operational debugging and visibility.
+
+
+Quota management
+---
+To avoid running out of model/API quota, follow these thresholds:
+- **>= 95%**: silently skip expensive jobs and log to `scientific-os/10-personal/quota-log.md`.
+- **>= 80% and < 95%**: announce a skip to the briefing channel and skip this run to preserve headroom.
+
+Jobs that should include a quota check before they start:
+- `nightly-research-scan` (expensive: multiple Tavily searches)
+- `email-research-digest` (moderate: 4x daily)
+- `weekly-synthesis` (spawns sub-agents; most expensive)
+
+Implemention: create a reusable skill at `workspace/skills/quota-check.md` that returns exit codes indicating whether to proceed or skip (and whether to announce). Call it as the first step in job prompts or wrap cron entries with a short shell wrapper.

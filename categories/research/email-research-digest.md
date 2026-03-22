@@ -23,6 +23,15 @@ openclaw cron add \
 
 ## Full prompt
 
+0. Quota check
+Run the quota-check skill at workspace/skills/quota-check.md before any heavy work. Example wrapper:
+
+```bash
+JOB_NAME=nightly-research-scan bash -c 'workspace/skills/quota-check.md && echo ok'
+```
+
+
+
 ```
 You are processing research email alerts from an AgentMail inbox.
 
