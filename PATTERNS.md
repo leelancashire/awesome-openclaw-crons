@@ -169,3 +169,12 @@ openclaw cron enable <jobId>
 ```
 
 A job that fails silently at 1am is much harder to debug than one you ran manually and watched fail.
+
+
+Related tools & skills
+---
+The OpenClaw ecosystem includes diagnostic and visualization skills that complement the patterns here. Notable examples:
+- cron-doctor — a diagnostics skill that audits cron jobs and their recent runs
+- cron-visualizer — a visualization skill for job schedules and quota usage over time
+
+Use these alongside the patterns in this doc for operational debugging and visibility.
