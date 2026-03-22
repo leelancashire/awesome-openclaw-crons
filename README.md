@@ -76,7 +76,7 @@ Calendar integration and meeting prep automation.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/awesome-openclaw-crons
+git clone https://github.com/leelancashire/awesome-openclaw-crons
 
 # Browse a category
 cat categories/productivity/daily-kickoff.md
@@ -190,9 +190,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Author
 
-Built and maintained by [Lee Lancashire](https://github.com/YOUR_USERNAME) — Head of Data Science at [Every Cure](https://everycure.org), working at the intersection of AI and rare disease research.
+Maintained by Lee Lancashire — https://www.linkedin.com/in/llancashire/
 
-These cron jobs run my personal research OS. I added them here because I spent weeks figuring out what works and the community deserves to start from somewhere better than scratch.
+I am testing these cron jobs as a way to run my personal research OS. I thought I would share them since I spent a couple of weeks figuring out what works and it might be helpful to share with the community rather than them start from scratch.
+
 
 ---
 
