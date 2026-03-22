@@ -8,7 +8,7 @@
 
 Most OpenClaw cron examples show you `"Summarize my inbox"` and call it a day.
 
-This repo is different. Every prompt here has been run in production. The timing rationale is documented. The model choices are explained. The gotchas are included — because the difference between a cron job that works once and one that runs reliably every day is usually in the details nobody writes down.
+This repo is different. Every prompt here has been run in production. The timing rationale is documented. The model choices are explained. The gotchas are included  -  because the difference between a cron job that works once and one that runs reliably every day is usually in the details nobody writes down.
 
 ---
 
@@ -156,7 +156,7 @@ What a successful run looks like (optional).
 ## Patterns and anti-patterns
 
 See [PATTERNS.md](PATTERNS.md) for:
-- Isolated vs main session — when to use each
+- Isolated vs main session  -  when to use each
 - How to avoid API quota collisions across jobs
 - Memory flush before compaction
 - Discord vs Telegram delivery
@@ -181,16 +181,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Related resources
 
-- [openclaw/openclaw](https://github.com/openclaw/openclaw) — Core framework
-- [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) — Skill library
-- [vincentkoc/awesome-openclaw](https://github.com/vincentkoc/awesome-openclaw) — General ecosystem
-- [OpenClaw cron docs](https://docs.openclaw.ai/automation/cron-jobs) — Official reference
+- [openclaw/openclaw](https://github.com/openclaw/openclaw)  -  Core framework
+- [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills)  -  Skill library
+- [vincentkoc/awesome-openclaw](https://github.com/vincentkoc/awesome-openclaw)  -  General ecosystem
+- [OpenClaw cron docs](https://docs.openclaw.ai/automation/cron-jobs)  -  Official reference
 
 ---
 
 ## Author
 
-Maintained by Lee Lancashire — https://www.linkedin.com/in/llancashire/
+Maintained by Lee Lancashire  -  https://www.linkedin.com/in/llancashire/
 
 I am testing these cron jobs as a way to run my personal research OS. I thought I would share them since I spent a couple of weeks figuring out what works and it might be helpful to share with the community rather than them start from scratch.
 

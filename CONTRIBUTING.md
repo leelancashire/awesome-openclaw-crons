@@ -6,7 +6,7 @@ Contributions welcome. The bar is simple: if it's run in production and you know
 
 - Cron jobs you have actually run, not ones you think would work
 - Real prompts, not placeholders
-- Honest gotchas — if your job has never failed you haven't run it long enough
+- Honest gotchas  -  if your job has never failed you haven't run it long enough
 - Model recommendations with reasoning, not just "use the best model"
 
 ## What we don't want

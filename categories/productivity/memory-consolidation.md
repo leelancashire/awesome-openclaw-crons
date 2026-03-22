@@ -4,7 +4,7 @@
 
 Runs every night after your working day ends and reviews the day's conversations and notes, distilling anything durable into `MEMORY.md` and `memory/YYYY-MM-DD.md`. Prevents preferences, decisions, and learnings from being lost at context compaction.
 
-OpenClaw has a built-in pre-compaction memory flush, but it only fires when a session is *about* to compact. This job is a proactive second pass — a deliberate end-of-day review that catches anything the automatic flush might miss.
+OpenClaw has a built-in pre-compaction memory flush, but it only fires when a session is *about* to compact. This job is a proactive second pass  -  a deliberate end-of-day review that catches anything the automatic flush might miss.
 
 ## Cron command
 
@@ -30,7 +30,7 @@ Read:
   Focus on the ## 📝 My Notes section
 - Today's meeting notes in [YOUR_VAULT]/02-meetings/
   (any files dated today)
-- memory/$(date +%Y-%m-%d).md if it exists — don't duplicate what's there
+- memory/$(date +%Y-%m-%d).md if it exists  -  don't duplicate what's there
 
 ## 2. IDENTIFY DURABLE ITEMS
 Extract items worth preserving across sessions:
@@ -58,21 +58,21 @@ If durable items found:
 - Append to [WORKSPACE]/MEMORY.md under today's date
 - Append to [WORKSPACE]/memory/$(date +%Y-%m-%d).md
 
-If nothing durable found: output "MEMORY_OK — nothing new to store" and stop.
+If nothing durable found: output "MEMORY_OK  -  nothing new to store" and stop.
 
 ## 4. CONFIRM
-Output: "MEMORY_OK — stored [N] items to MEMORY.md, [M] items to daily log"
-or: "MEMORY_OK — nothing new"
+Output: "MEMORY_OK  -  stored [N] items to MEMORY.md, [M] items to daily log"
+or: "MEMORY_OK  -  nothing new"
 Do not deliver to any channel.
 ```
 
 ## Model recommendation
 
-**Mid-tier model.** This job requires actual judgment — distinguishing what's genuinely durable from routine noise. A cheap model tends to either store too much (everything looks important) or too little (nothing passes the bar). Sonnet-class is appropriate here.
+**Mid-tier model.** This job requires actual judgment  -  distinguishing what's genuinely durable from routine noise. A cheap model tends to either store too much (everything looks important) or too little (nothing passes the bar). Sonnet-class is appropriate here.
 
 ## Timing rationale
 
-**11:45pm** — chosen to:
+**11:45pm**  -  chosen to:
 - Run after nightly backup (11:10pm)
 - Run before the research scan (1:15am)
 - Capture the full day including any late evening work
@@ -81,10 +81,10 @@ Do not deliver to any channel.
 ## Dependencies
 
 **Vault structure:**
-- `[WORKSPACE]/MEMORY.md` — long-term memory file (must exist)
-- `[WORKSPACE]/memory/` — daily log directory (created automatically)
-- `01-daily/briefs/` — today's brief
-- `02-meetings/` — today's meeting notes
+- `[WORKSPACE]/MEMORY.md`  -  long-term memory file (must exist)
+- `[WORKSPACE]/memory/`  -  daily log directory (created automatically)
+- `01-daily/briefs/`  -  today's brief
+- `02-meetings/`  -  today's meeting notes
 
 **Configuration required:**
 Add to `openclaw.json` to enable automatic memory flush at compaction (complements this job):
@@ -109,6 +109,6 @@ Add to `openclaw.json` to enable automatic memory flush at compaction (complemen
 
 **MEMORY.md grows without pruning.** Over months, MEMORY.md becomes unwieldy. Add a monthly review pass (or include in monthly vault synthesis) to archive stale entries.
 
-**The two-file split is intentional.** `MEMORY.md` is evergreen — loaded in every session. `memory/YYYY-MM-DD.md` is temporal — read at session start for today and yesterday only. Don't put temporary context in `MEMORY.md` or it loads permanently.
+**The two-file split is intentional.** `MEMORY.md` is evergreen  -  loaded in every session. `memory/YYYY-MM-DD.md` is temporal  -  read at session start for today and yesterday only. Don't put temporary context in `MEMORY.md` or it loads permanently.
 
 **Silent failures are especially bad here.** If this job fails silently for a week, you lose a week of learnings. Check `openclaw cron runs --id <jobId>` periodically to verify it's running.

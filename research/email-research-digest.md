@@ -51,7 +51,7 @@ Use exactly this format (same as nightly Tavily scan):
 
 **[Title]**
 
-Source: [journal/preprint server] | [clean URL — omit if tracking link]
+Source: [journal/preprint server] | [clean URL  -  omit if tracking link]
 
 [4-6 sentence summary]
 
@@ -78,7 +78,7 @@ Cheap model is fine. Email parsing is structured extraction, not reasoning. The 
 
 ## Timing rationale
 
-**4x daily: 8am, 12pm, 5pm, 9pm** — journals send alerts at various times. Running 4x catches morning alerts before the day starts, lunchtime digests, end-of-day newsletters, and evening bioRxiv drops. Running more frequently adds API cost without meaningfully improving coverage.
+**4x daily: 8am, 12pm, 5pm, 9pm**  -  journals send alerts at various times. Running 4x catches morning alerts before the day starts, lunchtime digests, end-of-day newsletters, and evening bioRxiv drops. Running more frequently adds API cost without meaningfully improving coverage.
 
 Runs after the daily kickoff (7am) so the kickoff always reads the previous day's email digest, not the current morning's.
 
@@ -91,11 +91,11 @@ Runs after the daily kickoff (7am) so the kickoff always reads the previous day'
 - Gmail (or other email) filters forwarding journal alerts to your AgentMail address
 
 **Vault structure:**
-- `00-inbox/` — output location, appends to same file as nightly scan
-- `05-knowledge/concepts/` — checked for deduplication
+- `00-inbox/`  -  output location, appends to same file as nightly scan
+- `05-knowledge/concepts/`  -  checked for deduplication
 
 **Other jobs:**
-- Complements `nightly-research-scan` — both write to the same candidates file
+- Complements `nightly-research-scan`  -  both write to the same candidates file
 - Daily kickoff reads the combined output
 
 ## Gotchas

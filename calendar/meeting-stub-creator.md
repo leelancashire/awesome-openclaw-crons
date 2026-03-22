@@ -82,7 +82,7 @@ Do not deliver to any channel.
 
 ## Timing rationale
 
-**6:30am weekdays** — 30 minutes before the daily kickoff (7am). The kickoff then reads the meeting stubs it finds and includes them in the brief. This ordering is intentional — stubs first, then briefing.
+**6:30am weekdays**  -  30 minutes before the daily kickoff (7am). The kickoff then reads the meeting stubs it finds and includes them in the brief. This ordering is intentional  -  stubs first, then briefing.
 
 ## Dependencies
 
@@ -91,16 +91,16 @@ Do not deliver to any channel.
 - Calendar populated with today's events
 
 **Vault structure:**
-- `02-meetings/` — output location for stubs
-- `03-contacts/` — contact pages for attendee matching
-- `04-projects/` — for context snippets in stub headers
-- `00-inbox/TEMPLATE-meeting-note.md` — base template (optional but recommended)
+- `02-meetings/`  -  output location for stubs
+- `03-contacts/`  -  contact pages for attendee matching
+- `04-projects/`  -  for context snippets in stub headers
+- `00-inbox/TEMPLATE-meeting-note.md`  -  base template (optional but recommended)
 
 ## Gotchas
 
 **khal must be synced before this runs.** If vdirsyncer hasn't synced recently, khal returns stale calendar data. Either run vdirsyncer sync in the prompt before calling khal, or add a vdirsyncer sync to your nightly backup.
 
-**Calendar filter is essential.** `khal list today` returns all calendars — personal, family, work, shared. Without filtering, you create stubs for your kids' school events and dentist appointments. Filter to work calendars only, or explicitly exclude Personal/Family calendars.
+**Calendar filter is essential.** `khal list today` returns all calendars  -  personal, family, work, shared. Without filtering, you create stubs for your kids' school events and dentist appointments. Filter to work calendars only, or explicitly exclude Personal/Family calendars.
 
 **Title slugs need cleaning.** Meeting titles often contain special characters, slashes, and colons that break filenames. Clean the slug: lowercase, spaces to hyphens, remove special characters. Explicitly instruct this in the prompt.
 

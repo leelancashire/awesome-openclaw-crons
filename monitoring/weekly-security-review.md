@@ -2,7 +2,7 @@
 
 ## What it does
 
-Runs every Monday morning and reviews the last 7 days of audit logs, comparing activity against a known baseline of normal behaviour. Flags anything unusual — unexpected file access, API calls from unexpected sources, cron jobs that ran at wrong times, unusual action volumes. Writes a brief report to the vault and alerts immediately on anything suspicious.
+Runs every Monday morning and reviews the last 7 days of audit logs, comparing activity against a known baseline of normal behaviour. Flags anything unusual  -  unexpected file access, API calls from unexpected sources, cron jobs that ran at wrong times, unusual action volumes. Writes a brief report to the vault and alerts immediately on anything suspicious.
 
 Security through visibility: you can't spot anomalies without a baseline, and you can't build a baseline without regular review.
 
@@ -31,7 +31,7 @@ Read: /var/log/openclaw/audit.jsonl
 Filter to entries from the last 7 days.
 
 If audit logging is not configured, output:
-"⚠️ SECURITY: Audit logging not configured — cannot review.
+"⚠️ SECURITY: Audit logging not configured  -  cannot review.
 See PATTERNS.md for setup instructions."
 Then stop.
 
@@ -61,7 +61,7 @@ Write to: [YOUR_VAULT]/10-personal/security/$(date +%Y-%m-%d)-security-review.md
 
 Report format:
 ---
-# Security Review — [date]
+# Security Review  -  [date]
 Period: [start] to [end]
 Status: NORMAL | REVIEW NEEDED | ALERT
 
@@ -80,20 +80,20 @@ Status: NORMAL | REVIEW NEEDED | ALERT
 
 ## 5. ANNOUNCE
 Post to Discord:
-If NORMAL: "✅ Weekly security review complete — nothing unusual"
-If REVIEW NEEDED: "🔍 Security review: [N] items need attention —
+If NORMAL: "✅ Weekly security review complete  -  nothing unusual"
+If REVIEW NEEDED: "🔍 Security review: [N] items need attention  - 
 [one-line summary]. Full report: 10-personal/security/[date].md"
-If ALERT: "🚨 SECURITY ALERT: [what was found] —
+If ALERT: "🚨 SECURITY ALERT: [what was found]  - 
 Review immediately: 10-personal/security/[date].md"
 ```
 
 ## Model recommendation
 
-**`openrouter/anthropic/claude-sonnet-4-5`** — reading audit logs requires genuine pattern recognition and judgment. A cheap model either flags everything (useless noise) or flags nothing (false security). This is one job where quality of analysis matters significantly.
+**`openrouter/anthropic/claude-sonnet-4-5`**  -  reading audit logs requires genuine pattern recognition and judgment. A cheap model either flags everything (useless noise) or flags nothing (false security). This is one job where quality of analysis matters significantly.
 
 ## Timing rationale
 
-**Monday 9am** — reviews the full previous week including weekend. Early enough Monday to act on anything found before the week progresses. Weekly cadence is sufficient for a personal system — daily review would be noise.
+**Monday 9am**  -  reviews the full previous week including weekend. Early enough Monday to act on anything found before the week progresses. Weekly cadence is sufficient for a personal system  -  daily review would be noise.
 
 ## Dependencies
 
@@ -111,15 +111,15 @@ Review immediately: 10-personal/security/[date].md"
 - Audit log at `/var/log/openclaw/audit.jsonl`
 
 **Vault structure:**
-- `10-personal/security/` — report output location (create this folder)
+- `10-personal/security/`  -  report output location (create this folder)
 
 ## Gotchas
 
-**The job is only as useful as your audit logging.** Without structured logging configured, this job has nothing to review. Set up logging first — see the logging configuration in `PATTERNS.md`.
+**The job is only as useful as your audit logging.** Without structured logging configured, this job has nothing to review. Set up logging first  -  see the logging configuration in `PATTERNS.md`.
 
 **Build baseline knowledge before expecting useful alerts.** The first few reviews will be noise as you learn what's normal. After 4-6 weeks you'll have a mental model of baseline activity and anomalies will be obvious.
 
-**False positives are better than false negatives.** Configure the baseline conservatively — flag anything uncertain rather than suppressing it. You can always decide a flagged item is fine. You can't un-miss a real anomaly.
+**False positives are better than false negatives.** Configure the baseline conservatively  -  flag anything uncertain rather than suppressing it. You can always decide a flagged item is fine. You can't un-miss a real anomaly.
 
 **Offsite log storage matters.** Logs stored only on the same machine as the agent can be deleted by a compromised agent. Copy audit logs to your backup repo nightly (add to `refresh.sh`) so an attacker can't cover their tracks.
 

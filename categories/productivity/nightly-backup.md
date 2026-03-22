@@ -41,7 +41,7 @@ and pushes to the remote repository.
 
 ## 4. REPORT
 If all steps succeeded: output "BACKUP_OK [date]"
-If any step failed: output "BACKUP_ERROR — [which step] — [error detail]"
+If any step failed: output "BACKUP_ERROR  -  [which step]  -  [error detail]"
 
 Do not deliver output unless there is an error.
 ```
@@ -52,20 +52,20 @@ Do not deliver output unless there is an error.
 
 ## Timing rationale
 
-**11:10pm** — chosen deliberately:
+**11:10pm**  -  chosen deliberately:
 - After your working day ends
 - Before memory consolidation (11:45pm)
 - Before the research scan (1:15am)
 - Gives a 2-hour buffer before midnight
 
-Avoid midnight exactly — too many systems run at 00:00.
+Avoid midnight exactly  -  too many systems run at 00:00.
 
 ## Dependencies
 
 **Required:**
 - A git repository configured as the backup destination
-- `refresh.sh` — copies workspace files into the backup repo
-- `sync.sh` — stages, commits, and pushes
+- `refresh.sh`  -  copies workspace files into the backup repo
+- `sync.sh`  -  stages, commits, and pushes
 - SSH keys or HTTPS credentials configured for the remote repo
 
 **Optional:**
@@ -108,7 +108,7 @@ echo "Sync complete: $(date)"
 
 ## Gotchas
 
-**Never commit `~/.openclaw/` directly.** That directory contains secrets, session tokens, and credentials. The backup repo should only contain workspace files you explicitly copy via `refresh.sh` — never the full `.openclaw` directory.
+**Never commit `~/.openclaw/` directly.** That directory contains secrets, session tokens, and credentials. The backup repo should only contain workspace files you explicitly copy via `refresh.sh`  -  never the full `.openclaw` directory.
 
 **SSH keys need to be accessible to the process.** If your gateway runs as a different user than your SSH key owner, the git push will fail silently. Test with `git push` manually from the same user context as the gateway process.
 

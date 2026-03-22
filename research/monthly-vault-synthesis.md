@@ -2,7 +2,7 @@
 
 ## What it does
 
-Runs on the first of every month and performs a deep read across the entire vault — knowledge notes, meeting notes, daily captures, project overviews, council outputs — looking for non-obvious connections, recurring themes, contradictions between notes, and ideas that keep resurfacing without resolution.
+Runs on the first of every month and performs a deep read across the entire vault  -  knowledge notes, meeting notes, daily captures, project overviews, council outputs  -  looking for non-obvious connections, recurring themes, contradictions between notes, and ideas that keep resurfacing without resolution.
 
 Unlike the weekly councils (project status) or weekly review (personal reflection), this job is about finding what you haven't noticed. Cross-cutting patterns that only become visible with distance.
 
@@ -26,7 +26,7 @@ openclaw cron add \
 ```
 You are running the monthly vault synthesis for $(date +%B %Y).
 Read everything before concluding anything.
-Your job is to find what hasn't been explicitly noticed yet —
+Your job is to find what hasn't been explicitly noticed yet  - 
 not to summarise what's already obvious.
 
 ## 1. VERIFY DATE
@@ -36,22 +36,22 @@ Run: TZ="Europe/London" date "+%A %d %B %Y"
 Read broadly across all of:
 
 Knowledge base:
-- [YOUR_VAULT]/05-knowledge/concepts/ — all files from the last 90 days
-- [YOUR_VAULT]/05-knowledge/notes/ — all freeform notes
+- [YOUR_VAULT]/05-knowledge/concepts/  -  all files from the last 90 days
+- [YOUR_VAULT]/05-knowledge/notes/  -  all freeform notes
 
 Projects:
-- [YOUR_VAULT]/04-projects/ — all *-OVERVIEW.md files in full
+- [YOUR_VAULT]/04-projects/  -  all *-OVERVIEW.md files in full
 
 Research inbox:
-- [YOUR_VAULT]/00-inbox/research-candidates-*.md — last 30 days
+- [YOUR_VAULT]/00-inbox/research-candidates-*.md  -  last 30 days
 
 Daily thinking:
-- [YOUR_VAULT]/01-daily/briefs/ — last 30 days,
+- [YOUR_VAULT]/01-daily/briefs/  -  last 30 days,
   ONLY the ## 📝 My Notes sections
-- [YOUR_VAULT]/07-councils/ — last 3 council synthesis outputs
+- [YOUR_VAULT]/07-councils/  -  last 3 council synthesis outputs
 
 Previous insights:
-- [YOUR_VAULT]/09-insights/ — all previous synthesis notes
+- [YOUR_VAULT]/09-insights/  -  all previous synthesis notes
   Do NOT repeat insights already captured there.
 
 Read everything before writing anything.
@@ -62,7 +62,7 @@ Lens 1: Cross-project connections
 Where do separate projects touch the same problem from different angles?
 Look for: shared methods, shared failure modes, places where progress
 on one project would unlock another.
-Only surface non-obvious connections — not ones already linked in the vault.
+Only surface non-obvious connections  -  not ones already linked in the vault.
 
 Lens 2: Recurring themes
 What ideas, questions, or framings appear repeatedly across different
@@ -94,7 +94,7 @@ vault_notes_read: [N]
 previous_synthesis: [[last synthesis file]]
 ---
 
-# Vault Synthesis — [Month YYYY]
+# Vault Synthesis  -  [Month YYYY]
 
 ## Summary
 [3-4 sentences. What is the single most important thing this synthesis
@@ -132,13 +132,13 @@ surfaces? Lead with it.]
   Suggested action: [concept stub / project / park / decide to drop]
 
 ## Recommended actions
-1. [Most important — max 5 total]
+1. [Most important  -  max 5 total]
 
 ---
 
 ## 5. ANNOUNCE
 Post to Discord:
-"🧠 Monthly vault synthesis complete — [Month YYYY]
+"🧠 Monthly vault synthesis complete  -  [Month YYYY]
 [N] connections · [N] themes · [N] contradictions · [N] resurfaces
 Top finding: [one sentence]
 Full note: 09-insights/[date]-monthly-synthesis.md"
@@ -146,24 +146,24 @@ Full note: 09-insights/[date]-monthly-synthesis.md"
 
 ## Model recommendation
 
-**`openrouter/anthropic/claude-sonnet-4-5`** — this is the most cognitively demanding job in the system. It reads 50-100+ files, holds them all in working memory, and finds non-obvious patterns across them. Cheap models produce surface-level summaries that miss the point. Use your best available model here.
+**`openrouter/anthropic/claude-sonnet-4-5`**  -  this is the most cognitively demanding job in the system. It reads 50-100+ files, holds them all in working memory, and finds non-obvious patterns across them. Cheap models produce surface-level summaries that miss the point. Use your best available model here.
 
 ## Timing rationale
 
-**1st of month, 8am** — beginning of the month is a natural review point. Morning delivery means you can read it with coffee and let the findings inform the month ahead.
+**1st of month, 8am**  -  beginning of the month is a natural review point. Morning delivery means you can read it with coffee and let the findings inform the month ahead.
 
-First run will be thin — the vault is young and patterns haven't had time to accumulate. Gets significantly more valuable from month 3 onwards when there's enough material to find genuine non-obvious connections.
+First run will be thin  -  the vault is young and patterns haven't had time to accumulate. Gets significantly more valuable from month 3 onwards when there's enough material to find genuine non-obvious connections.
 
 ## Dependencies
 
 **Vault structure:**
-- `05-knowledge/concepts/` — concept stubs
-- `05-knowledge/notes/` — freeform notes
-- `04-projects/` — project overviews
-- `00-inbox/` — research candidates
-- `01-daily/briefs/` — daily briefs
-- `07-councils/` — council synthesis outputs
-- `09-insights/` — output location AND previous syntheses (create this folder)
+- `05-knowledge/concepts/`  -  concept stubs
+- `05-knowledge/notes/`  -  freeform notes
+- `04-projects/`  -  project overviews
+- `00-inbox/`  -  research candidates
+- `01-daily/briefs/`  -  daily briefs
+- `07-councils/`  -  council synthesis outputs
+- `09-insights/`  -  output location AND previous syntheses (create this folder)
 
 ## Gotchas
 
@@ -173,4 +173,4 @@ First run will be thin — the vault is young and patterns haven't had time to a
 
 **Previous synthesis notes prevent repetition.** Without reading prior syntheses, the job surfaces the same connections every month. Always read `09-insights/` and explicitly exclude what's already been captured.
 
-**The job is slow.** Reading 50-100 files takes time and context. This is a long-running isolated job — don't be surprised if it takes 10-15 minutes. Don't set a short timeout.
+**The job is slow.** Reading 50-100 files takes time and context. This is a long-running isolated job  -  don't be surprised if it takes 10-15 minutes. Don't set a short timeout.

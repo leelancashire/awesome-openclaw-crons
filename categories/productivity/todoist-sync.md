@@ -33,7 +33,7 @@ action items tagged #task.
 
 ## 2. CHECK TODOIST
 For each #task item found, check whether a matching task already
-exists in Todoist (fuzzy match on title — don't duplicate).
+exists in Todoist (fuzzy match on title  -  don't duplicate).
 
 ## 3. ADD MISSING TASKS
 For each item not already in Todoist:
@@ -42,9 +42,9 @@ For each item not already in Todoist:
 - Add label matching any #project tag if present (e.g. #matrix → matrix label)
 
 ## 4. REPORT
-If tasks were added, output: "SYNC_OK — added [N] task(s): [task names]"
-If nothing to add: "SYNC_OK — nothing new"
-If an error occurred: "SYNC_ERROR — [error detail]"
+If tasks were added, output: "SYNC_OK  -  added [N] task(s): [task names]"
+If nothing to add: "SYNC_OK  -  nothing new"
+If an error occurred: "SYNC_ERROR  -  [error detail]"
 
 Do not deliver this output to any channel unless there is an error.
 ```
@@ -55,9 +55,9 @@ Do not deliver this output to any channel unless there is an error.
 
 ## Timing rationale
 
-**Every 30 minutes** — frequent enough that tasks captured mid-day appear in Todoist within the hour. Less frequent (hourly) means tasks sit in limbo too long. More frequent wastes API quota and rarely finds new items.
+**Every 30 minutes**  -  frequent enough that tasks captured mid-day appear in Todoist within the hour. Less frequent (hourly) means tasks sit in limbo too long. More frequent wastes API quota and rarely finds new items.
 
-Silent delivery (`--no-deliver`) — this job runs 48 times a day. You don't want 48 Discord messages. Errors surface because the SYNC_ERROR output triggers delivery when something goes wrong.
+Silent delivery (`--no-deliver`)  -  this job runs 48 times a day. You don't want 48 Discord messages. Errors surface because the SYNC_ERROR output triggers delivery when something goes wrong.
 
 ## Dependencies
 
@@ -66,8 +66,8 @@ Silent delivery (`--no-deliver`) — this job runs 48 times a day. You don't wan
 - Todoist API key in secrets
 
 **Vault structure:**
-- `01-daily/briefs/` — reads today's brief for #task items
-- `02-meetings/` — reads today's meeting notes for action items
+- `01-daily/briefs/`  -  reads today's brief for #task items
+- `02-meetings/`  -  reads today's meeting notes for action items
 
 **Conventions required:**
 - Tasks in daily notes tagged with `#task`
@@ -77,7 +77,7 @@ Silent delivery (`--no-deliver`) — this job runs 48 times a day. You don't wan
 
 **Fuzzy matching prevents duplicates but isn't perfect.** If you write "Email Pascal" one day and "Email Pascal re MR pipeline" the next, the matcher may create a duplicate. Add the `--no-duplicate` instruction explicitly and include a similarity threshold.
 
-**Silent failures are hard to diagnose.** Because the job runs silently, errors can go unnoticed for hours. The SYNC_ERROR output pattern is essential — make sure your delivery config surfaces errors even when normal output is suppressed.
+**Silent failures are hard to diagnose.** Because the job runs silently, errors can go unnoticed for hours. The SYNC_ERROR output pattern is essential  -  make sure your delivery config surfaces errors even when normal output is suppressed.
 
 **Meeting note tasks need a date.** Tasks extracted from meeting notes often have no natural due date. Set a default (today, or tomorrow for anything captured in an afternoon meeting) to avoid tasks with no due date piling up in Todoist.
 

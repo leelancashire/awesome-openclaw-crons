@@ -26,14 +26,14 @@ The one exception: simple one-time reminders where you *want* the interruption.
 
 If you run multiple jobs at the same time they compete for the same rate limit and one silently fails. Stagger jobs that run on similar schedules.
 
-**Bad — three jobs at midnight:**
+**Bad  -  three jobs at midnight:**
 ```
 nightly-backup:        0 23 * * *
 memory-consolidation:  0 23 * * *
 research-scan:         0 23 * * *
 ```
 
-**Good — staggered:**
+**Good  -  staggered:**
 ```
 nightly-backup:        10 23 * * *   # 11:10pm
 memory-consolidation:  45 23 * * *   # 11:45pm
@@ -127,7 +127,7 @@ For complex jobs (research scan, newsletter pipeline) put the prompt in a skill 
 
 ## Monday lookback
 
-Daily jobs that read "yesterday's" notes break over weekends — Monday morning's job looks back to Sunday, which is blank.
+Daily jobs that read "yesterday's" notes break over weekends  -  Monday morning's job looks back to Sunday, which is blank.
 
 Fix: add an explicit Monday check in any job that reads yesterday's output.
 
